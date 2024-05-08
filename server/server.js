@@ -13,11 +13,7 @@ app.use(express.static('server/public'))
 
 // -------- GET ROUTE ------------------
 
-let quoteList = [
-  { text: 'I\'m not going to school just for the academics - I wanted to share ideas, to be around people who are passionate about learning.', author: 'Emma Watson' },
-  { text: 'Remember there\'s no such thing as a small act of kindness. Every act creates a ripple with no logical end.', author: 'Scott Adams' },
-  { text: 'Intelligence plus character-that is the goal of true education.', author: 'Martin Luther King, Jr.' }
-];
+let quoteList = require('./quoteList.js')
 
 // * GET Route to return some quotes
   // A method type, which receives 2 arguments
@@ -34,6 +30,27 @@ app.get('/quotes', (req, res) => {
   // res.sendStatus(500)
 })
 
+app.get('/author', (req, res) => {
+  
+  let author = []
+
+  for (let quote of quoteList){
+    author.push(quote.author)
+    console.log('current quote', quote)
+
+  }
+console.log('author is', author)
+
+res.send(author)
+  // res.sendStatus(200)
+  //like a return
+})
+
+
+
+
+
+  
 // -------- GET ROUTE END ---------------
 
 // ! Actually start server when file is ran
