@@ -1,0 +1,10 @@
+# Will ignore the following:
+
+# The directory that stores downloaded NPM packages
+node_modules/
+
+# Local config file, no one else will ever need.
+.DS_Store
+
+# Prevent Logs from getting added
+*.log
